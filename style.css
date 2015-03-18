@@ -1,0 +1,176 @@
+body {
+  font-family: "DejaVu Sans", "Bitstream Vera Sans", "Arial", sans-serif;
+  font-size: 10pt;
+}
+
+#map {
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 51px;
+  font-family: sans-serif;
+}           
+
+#navigation {
+  position: fixed;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  height: 50px;
+  border-top: 1px solid black;
+  text-align: center;
+  line-height: 50px;
+  background-color: white;
+  box-shadow: 0px 0px 25px black;
+}
+
+#navright {
+  position: absolute;
+  right: 10px;
+  top: 0px;
+  line-height: 50px;
+}
+
+#navleft {
+  position: absolute;
+  left: 10px;
+  top: 0px;
+  line-height: 50px;
+}
+
+#selector {
+  position: fixed;
+  bottom: 100px;
+  top: 50px;
+  right: 0px;
+  width: 155px;
+  font-size: 9pt;
+  line-height: 30px;
+  border-top: 1px solid black;
+  border-left: 1px solid black;
+  border-bottom: 1px solid black;
+  background-color: white;
+  padding: 10px;
+  overflow: auto;
+  box-shadow: 0px 0px 25px black;
+}
+
+#selector span img {
+  vertical-align: middle;
+}
+
+#poiImporter, #help, #newPOI, #newPOIListWindow {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  border: 1px solid black;
+  background-color: white;
+  padding: 10px;
+  box-shadow: 0px 0px 50px black;
+}
+
+#poiImporter, #newPOIListWindow {
+  width: 800px;
+  height: 331px;
+  margin-top: -180px;
+  margin-left: -400px;
+}
+
+#help {
+  width: 800px;
+  height: 430px;
+  margin-top: -250px;
+  margin-left: -400px;
+}
+
+#poiImporter, #newPOI, #showNewPOIs, #newPOIListWindow {
+  visibility: hidden;
+}
+
+#newPOI {
+  width: 560px;
+  height: 480px;
+  margin-left: -280px;
+  margin-top: -265px;
+}
+
+#newPOI div {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+#upper, #newPOIupper {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  top: 0px;
+  height: 290px;
+  padding: 10px;
+  overflow: auto;
+}
+
+#upper textarea {
+  width: 780px;
+  height: 150px;
+  resize: none;
+}
+
+#newPOIupper textarea {
+  width: 790px;
+  height: 280px;
+  resize: none;
+}
+
+#poiList table {
+  border-collapse: collapse;
+}
+
+#poiList table th, #poiList table td {
+  border: 1px solid black;
+  font-size: 8pt;
+}
+
+#lower, #newPOIlower {
+  position: absolute;
+  left: 0px;
+  right: 0px;
+  height: 20px;
+  line-height: 20px;
+  bottom: 0px;
+  border-top: 1px solid black;
+  padding: 10px;
+}
+
+#poiCounter {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+#lower button, #newPOIlower button {
+  position: absolute;
+  right: 10px;
+}
+
+#help h3 {
+  margin-top: 0px;
+}
+
+#help button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.hidden {
+  color: #aaa;
+}
+
+.visible {
+  color: #000;
+}

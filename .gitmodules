@@ -1,0 +1,4 @@
+[submodule "openlayers"]
+	path = openlayers
+	url = https://github.com/openlayers/openlayers.git
+	ignore = dirty

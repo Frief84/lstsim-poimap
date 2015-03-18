@@ -1,0 +1,182 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <title>POI Map</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link rel="stylesheet" href="style.css" type="text/css">
+    <script type="text/javascript" src="openlayers/OpenLayers.js"></script>
+    <script type="text/javascript" src="map.js"></script>
+    <script type="text/javascript" src="poi.js"></script>
+    <script src="http://maps.google.com/maps/api/js?v=3.2&sensor=false"></script>
+  </head>
+  <body onload="initMap(); initPOI();">
+    <div id="map"></div>
+    <div id="navigation">
+      <div id="navleft">
+        <button id="addPOIButton">POI hinzufügen</button>
+	<button id="showNewPOIs">neue POIs anzeigen</button>
+      </div>
+      <button id="openPOIImporter">1. POIs importieren <span style='color:red;'>✖</span></button>
+      <button id="drawPOIButton">2. POIs in die Karte zeichnen <span style='color:red;'>✖</span></button>
+      <div id="navright">
+<!--        <button id="switchBaseLayer">Google/OSM</button>-->
+        <button id="showAllPOIs">alle anzeigen</button>
+        <button id="hideAllPOIs">alle verbergen</button>
+      </div>
+    </div>
+    <div id="selector">
+    </div>
+    <div id="help">
+      <h3>POI Map</h3>
+      <p>Diese Karte bietet eine komfortable Möglichkeit, viele POIs in einer Kartenansicht übersichtlich
+      darzustellen. So kann etwa die Verteilung der POI-Kategorien im Einsatzgebiet überprüft werden. Die Karte
+      ist zur Zeit noch in Entwicklung, daher kann es zu Funktionsschwankungen
+      kommen.</p>
+      <strong>Import und Anzeige vorhandener POIs:</strong>
+      <ol>
+      <li>Auf die linke der beiden Schaltflächen in der Mitte der Leiste am unteren Bildrand klicken.</li>
+      <li>Im sich öffnenden Fenster oben eine Kopie der POI-Liste aus dem Leitstellenbaukasten einfügen.
+      Es sollte eine Tabelle mit den interpretierten POIs erscheinen.</li>
+      <li>Auf "Übernehmen" klicken. Auf der Schaltfläche unten sollte nun ein grüner Haken anstatt eines roten
+      X zu sehen sein.</li>
+      <li>Auf die rechte Schaltfläche unten klicken. Je nach Anzahl der POIs kann es einige Sekunden dauern,
+      bis diese auf der Karte erscheinen.</li>
+      <li>Auf einen POI klicken, um die Details zu diesem POI anzuzeigen.</li>
+      </ol>
+      <strong>Erstellen neuer POIs:</strong>
+      <ol>
+      <li>Auf die Schaltfl&auml;che ganz links in der Leiste am unteren Bildrand klicken.</li>
+      <li>In der Karte auf die Position des neuen POIs klicken.</li>
+      <li>Details des neuen POIs in das sich &ouml;ffnende Fenster eintragen.</li>
+      <li>Wenn alle gew&uuml;nschten neuen POIs eingetragen sind, auf die zweite Schaltfl&auml;che links unten klicken und die angezeigten Daten per POI-Massenimport in den Leitstelleneditor &uuml;bernehmen.</li>
+      </ol>
+      <p>Anregungen, Kritik und Bugreports bitte in den <a href="http://lstsim.de/forum/index.php?page=Thread&amp;threadID=5162" target="blank">Thread im Forum</a> oder auf <a href="https://github.com/Der-MichiK/lstsim-poimap">GitHub</a>!</p>
+      <button id="closeHelp">Verstanden!</button>
+    </div>
+    <div id="poiImporter">
+      <div id="upper">
+        <textarea id="poiInput"></textarea>
+        <p id="poiList"></p>
+      </div>
+      <div id="lower">
+        <span id="poiCounter"></span>
+        <button id="closePOIImporter">Übernehmen</button>
+      </div>
+    </div>
+    <div id="newPOI">
+      <table>
+        <tr><td>Koordinaten:</td><td><input type="text" name="coords" id="newPOICoords" /></td></tr>
+	<tr><td>Bezeichnung:</td><td><input type="text" name="name" id="newPOIName" /></td></tr>
+	<tr><td>Kommentar:</td><td><input type="text" name="comment" id="newPOIComment" /></td></tr>
+	<tr><td>Genus:</td><td><input type="radio" name="genus" value="M"> der <input type="radio" name="genus" value="F"> die <input type="radio" name="genus" value="N"> das</td></tr>
+	<tr><td colspan=2>
+	  <table>
+	  <tr>
+	    <td title="Altenheim"><input type="checkbox" name="tags" value="AH" /> AH</td>
+	    <td title="ambulantes Zentrum z.B. für Spezialuntersuchungen usw."><input type="checkbox" name="tags" value="AmbKH" /> AmbKH</td>
+	    <td title="Sportarena, Stadion (siehe auch Fußballplatz)"><input type="checkbox" name="tags" value="Arena" /> Arena</td>
+	    <td title="Gleisbereich mit Verkehr von Personenzügen"><input type="checkbox" name="tags" value="Bahnlinie" /> Bahnlinie</td>
+	    <td title="Niveaugleicher Bahnübergang"><input type="checkbox" name="tags" value="Bahnübergang" /> Bahnübergang</td>
+          </tr>
+          <tr>
+	    <td title="Bankfiliale"><input type="checkbox" name="tags" value="Bank" /> Bank</td>
+	    <td title="Bauernhof mit Feldern/Koppeln (siehe auch Reiterhof)"><input type="checkbox" name="tags" value="Bauernhof" /> Bauernhof</td>
+	    <td title="Ortsverein einer Hiorg (DRK, JUH, MHD, ASB usw.)"><input type="checkbox" name="tags" value="Bereitschaft" /> Bereitschaft</td>
+	    <td title="Bahnhof des Regionalverkehrs (siehe auch HBF)"><input type="checkbox" name="tags" value="BHF" /> BHF</td>
+	    <td title="Blutbank als Ausgangspunkt von Bluttransporten durch den RD"><input type="checkbox" name="tags" value="Blut" /> Blut</td>
+          </tr>
+          <tr>
+	    <td title="Straßenbrücke über einen Fluss"><input type="checkbox" name="tags" value="Brücke" /> Brücke</td>
+	    <td title="Dialysezentrum"><input type="checkbox" name="tags" value="Dialyse" /> Dialyse</td>
+	    <td title="Diskothek"><input type="checkbox" name="tags" value="Disko" /> Disko</td>
+	    <td title="Druckkammer als Ziel nach Tauchunfällen o.ä."><input type="checkbox" name="tags" value="Druck" /> Druck</td>
+	    <td title="Feuerwache (sowohl BF als auch FF)"><input type="checkbox" name="tags" value="Feuerwehr" /> Feuerwehr</td>
+          </tr>
+          <tr>
+	    <td title="Krankenhaus das als Ziel von Fernfahrten geeignet ist"><input type="checkbox" name="tags" value="FKH" /> FKH</td>
+	    <td title="größerer Verkehrsflughafen"><input type="checkbox" name="tags" value="Flughafen" /> Flughafen</td>
+	    <td title="Klinik an einem Flughafen"><input type="checkbox" name="tags" value="FlugKH" /> FlugKH</td>
+	    <td title="kleinerer Flugplatz"><input type="checkbox" name="tags" value="Flugplatz" /> Flugplatz</td>
+	    <td title="Gechlortes Freibad (siehe auch Hallenbad, Küste, See)"><input type="checkbox" name="tags" value="Freibad" /> Freibad</td>
+          </tr>
+          <tr>
+	    <td title="Begräbnisstätte (siehe auch Park)"><input type="checkbox" name="tags" value="Friedhof" /> Friedhof</td>
+	    <td title="Fußballplatz (siehe auch Arena)"><input type="checkbox" name="tags" value="Fußball" /> Fußball</td>
+	    <td title="Freizeitpark mit Fahrgeschäften (kein Rummelplatz o.ä. mit zeitlich begrenzten Volksfesten)"><input type="checkbox" name="tags" value="FZPark" /> FZPark</td>
+	    <td title="Gastgewerbebetrieb, Restaurant"><input type="checkbox" name="tags" value="Gasthaus" /> Gasthaus</td>
+            <td title="Gefängniskrankenhaus"><input type="checkbox" name="tags" value="GKH" /> GKH</td>
+          </tr>
+          <tr>
+	    <td title="Hafen für (große) Seeschiffe"><input type="checkbox" name="tags" value="Hafen" /> Hafen</td>
+	    <td title="Schwimmbad mit Dach und vier Wänden (siehe auch Freibad)"><input type="checkbox" name="tags" value="Hallenbad" /> Hallenbad</td>
+	    <td title="Bahnhof des Fernverkehrs (siehe auch BHF)"><input type="checkbox" name="tags" value="HBF" /> HBF</td>
+	    <td title="Spezialklinik für Kardiologie und Herzchirurgie, Herzzentrum"><input type="checkbox" name="tags" value="Herz" /> Herz</td>
+	    <td title="Startpunkt von Ambulanzfahrten (siehe AmbKH) und Start-/Zielpunkt von innerklinischen Verlegungen"><input type="checkbox" name="tags" value="IKH" /> IKH</td>
+          </tr>
+          <tr>
+	    <td title="Unternehmen/Firmen mit Lagerhallen, Fabriken usw. wo körperlich gearbeitet wird, nicht nur Büros"><input type="checkbox" name="tags" value="Industrie" /> Industrie</td>
+	    <td title="Jugendherberge"><input type="checkbox" name="tags" value="Juhe" /> Juhe</td>
+	    <td title="größeres Einkaufszentrum"><input type="checkbox" name="tags" value="Kaufhaus" /> Kaufhaus</td>
+	    <td title="alle (!) Krankenhäuser"><input type="checkbox" name="tags" value="KH" /> KH</td>
+	    <td title="Kleineres Krankenhaus ohne Intensivstation"><input type="checkbox" name="tags" value="KH1" /> KH1</td>
+          </tr>
+          <tr>
+	    <td title="Krankenhaus der Regelversorgung mit Intensivstation"><input type="checkbox" name="tags" value="KH2" /> KH2</td>
+	    <td title="Krankenhaus der Schwerpunkt-/Maximalversorgung"><input type="checkbox" name="tags" value="KH3" /> KH3</td>
+	    <td title="Kindergarten/Kindertagesstätte/Hort"><input type="checkbox" name="tags" value="KiKa" /> KiKa</td>
+	    <td title="Kinderfachklinik"><input type="checkbox" name="tags" value="KiKli" /> KiKli</td>
+	    <td title="Gebetshaus jeglicher Glaubensrichtung"><input type="checkbox" name="tags" value="Kirche" /> Kirche</td>
+          </tr>
+          <tr>
+	    <td title="Oper, Theater, Festspielhaus (muss über eine Bühne und Publikum verfügen, keine Museen, Ausstellungen o.ä.)"><input type="checkbox" name="tags" value="Kultur" /> Kultur</td>
+	    <td title="(Bade-)Strand (siehe auch Freibad, See)"><input type="checkbox" name="tags" value="Küste" /> Küste</td>
+	    <td title="Standort der gespielten Leitstelle"><input type="checkbox" name="tags" value="Lst" /> Lst</td>
+	    <td title="Fachklinik für Pneumologie und Thoraxchirurgie, Lungenfachzentrum"><input type="checkbox" name="tags" value="Lunge" /> Lunge</td>
+	    <td title="Notfallpraxis jeglicher Art (jedoch keine normale Hausarztprxis o.ä.)"><input type="checkbox" name="tags" value="Notfallpraxis" /> Notfallpraxis</td>
+          </tr>
+          <tr>
+	    <td title="Orthopädische Fachklinik oder Sportklinik"><input type="checkbox" name="tags" value="Ortho" /> Ortho</td>
+	    <td title="Park bzw. innerörtliche Grünanlage mit Parkbänken, Liegewiesen usw.(siehe auch Friedhof, Wald)"><input type="checkbox" name="tags" value="Park" /> Park</td>
+	    <td title="Polizeirevier/-station jeglicher Größe"><input type="checkbox" name="tags" value="Polizei" /> Polizei</td>
+	    <td title="Psychiatrische Klnik"><input type="checkbox" name="tags" value="Psychiatrie" /> Psychiatrie</td>
+	    <td title="Reha-Zentrum"><input type="checkbox" name="tags" value="Reha" /> Reha</td>
+          </tr>
+          <tr>
+	    <td title="Hof mit Pferden wo geritten wird (siehe auch Bauernhof)"><input type="checkbox" name="tags" value="Reiterhof" /> Reiterhof</td>
+	    <td title="Rettungswache"><input type="checkbox" name="tags" value="RW" /> RW</td>
+	    <td title="Flussschleuse für (größere) Schiffe"><input type="checkbox" name="tags" value="Schleuse" /> Schleuse</td>
+	    <td title="Schloss oder Burganlage, das/die besichtigt werden kann"><input type="checkbox" name="tags" value="Schloss" /> Schloss</td>
+	    <td title="Allgemeinbildende Schule"><input type="checkbox" name="tags" value="Schule" /> Schule</td>
+          </tr>
+          <tr>
+	    <td title="Frischwassersee (siehe auch Freibad, Küste)"><input type="checkbox" name="tags" value="See" /> See</td>
+	    <td title="Strahlenambulanz, Tumorzentrum"><input type="checkbox" name="tags" value="Strahlen" /> Strahlen</td>
+	    <td title="Tankstelle (die auch von den Fahrzeugen im Spiel genutzt werden kann)"><input type="checkbox" name="tags" value="Tankstelle" /> Tankstelle</td>
+	    <td title="Institut für Tropenkrankheiten"><input type="checkbox" name="tags" value="Tropen" /> Tropen</td>
+	    <td title="Straßentunnel"><input type="checkbox" name="tags" value="Tunnel" /> Tunnel</td>
+          </tr>
+          <tr>
+	    <td title="Universitätsklinikum"><input type="checkbox" name="tags" value="UKH" /> UKH</td>
+	    <td title="Waldgebiet, z.B. zum Joggen (siehe auch Park)"><input type="checkbox" name="tags" value="Wald" /> Wald</td>
+	    <td title="Zelt- oder Campingplatz"><input type="checkbox" name="tags" value="Zelt" /> Zelt</td>
+	    <td title="Zoo mit wilden Tieren"><input type="checkbox" name="tags" value="Zoo" /> Zoo</td>
+	  </tr>
+	</table>
+	</td></tr>
+      </table>
+      <div>
+        <button id="newPOICancel">Abbrechen</button>
+        <button id="newPOIAccept">Hinzufügen</button>
+      </div>
+    </div>
+    <div id="newPOIListWindow">
+      <div id="newPOIupper">
+        <textarea id="newPOIField" readonly></textarea>
+      </div>
+      <div id="newPOIlower">
+        <span id="newPOICounter"></span>
+        <button id="closeNewPOIListWindow">schließen</button>
+      </div>
+    </div>
+  </body>
+</html>
