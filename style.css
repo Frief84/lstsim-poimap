@@ -101,6 +101,11 @@ body {
   bottom: 10px;
 }
 
+#newPOItaglist label {
+  display: inline-block;
+  width: 135px;
+}
+
 #upper, #newPOIupper {
   position: absolute;
   left: 0px;

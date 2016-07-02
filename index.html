@@ -66,101 +66,77 @@
         <tr><td>Koordinaten:</td><td><input type="text" name="coords" id="newPOICoords" /></td></tr>
 	<tr><td>Bezeichnung:</td><td><input type="text" name="name" id="newPOIName" /></td></tr>
 	<tr><td>Kommentar:</td><td><input type="text" name="comment" id="newPOIComment" /></td></tr>
-	<tr><td>Genus:</td><td><input type="radio" name="genus" value="M"> der <input type="radio" name="genus" value="F"> die <input type="radio" name="genus" value="N"> das</td></tr>
-	<tr><td colspan=2>
-	  <table>
-	  <tr>
-	    <td title="Altenheim"><input type="checkbox" name="tags" value="AH" /> AH</td>
-	    <td title="ambulantes Zentrum z.B. für Spezialuntersuchungen usw."><input type="checkbox" name="tags" value="AmbKH" /> AmbKH</td>
-	    <td title="Sportarena, Stadion (siehe auch Fußballplatz)"><input type="checkbox" name="tags" value="Arena" /> Arena</td>
-	    <td title="Gleisbereich mit Verkehr von Personenzügen"><input type="checkbox" name="tags" value="Bahnlinie" /> Bahnlinie</td>
-	    <td title="Niveaugleicher Bahnübergang"><input type="checkbox" name="tags" value="Bahnübergang" /> Bahnübergang</td>
-          </tr>
-          <tr>
-	    <td title="Bankfiliale"><input type="checkbox" name="tags" value="Bank" /> Bank</td>
-	    <td title="Bauernhof mit Feldern/Koppeln (siehe auch Reiterhof)"><input type="checkbox" name="tags" value="Bauernhof" /> Bauernhof</td>
-	    <td title="Ortsverein einer Hiorg (DRK, JUH, MHD, ASB usw.)"><input type="checkbox" name="tags" value="Bereitschaft" /> Bereitschaft</td>
-	    <td title="Bahnhof des Regionalverkehrs (siehe auch HBF)"><input type="checkbox" name="tags" value="BHF" /> BHF</td>
-	    <td title="Blutbank als Ausgangspunkt von Bluttransporten durch den RD"><input type="checkbox" name="tags" value="Blut" /> Blut</td>
-          </tr>
-          <tr>
-	    <td title="Straßenbrücke über einen Fluss"><input type="checkbox" name="tags" value="Brücke" /> Brücke</td>
-	    <td title="Dialysezentrum"><input type="checkbox" name="tags" value="Dialyse" /> Dialyse</td>
-	    <td title="Diskothek"><input type="checkbox" name="tags" value="Disko" /> Disko</td>
-	    <td title="Feuerwache (sowohl BF als auch FF)"><input type="checkbox" name="tags" value="Feuerwehr" /> Feuerwehr</td>
-	    <td title="Krankenhaus das als Ziel von Fernfahrten geeignet ist"><input type="checkbox" name="tags" value="FKH" /> FKH</td>
-	  </tr>
-	  <tr>
-	    <td title="größerer Verkehrsflughafen"><input type="checkbox" name="tags" value="Flughafen" /> Flughafen</td>
-	    <td title="Klinik an einem Flughafen"><input type="checkbox" name="tags" value="FlugKH" /> FlugKH</td>
-	    <td title="kleinerer Flugplatz"><input type="checkbox" name="tags" value="Flugplatz" /> Flugplatz</td>
-	    <td title="Gechlortes Freibad (siehe auch Hallenbad, Küste, See)"><input type="checkbox" name="tags" value="Freibad" /> Freibad</td>
-	    <td title="Begräbnisstätte (siehe auch Park)"><input type="checkbox" name="tags" value="Friedhof" /> Friedhof</td>
-	  </tr>
-	  <tr>
-	    <td title="Fußballplatz (siehe auch Arena)"><input type="checkbox" name="tags" value="Fußball" /> Fußball</td>
-	    <td title="Freizeitpark mit Fahrgeschäften (kein Rummelplatz o.ä. mit zeitlich begrenzten Volksfesten)"><input type="checkbox" name="tags" value="FZPark" /> FZPark</td>
-	    <td title="Gastgewerbebetrieb, Restaurant"><input type="checkbox" name="tags" value="Gasthaus" /> Gasthaus</td>
-            <td title="Gefängniskrankenhaus"><input type="checkbox" name="tags" value="GKH" /> GKH</td>
-	    <td title="Hafen für (große) Seeschiffe"><input type="checkbox" name="tags" value="Hafen" /> Hafen</td>
-	  </tr>
-	  <tr>
-	    <td title="Schwimmbad mit Dach und vier Wänden (siehe auch Freibad)"><input type="checkbox" name="tags" value="Hallenbad" /> Hallenbad</td>
-	    <td title="Bahnhof des Fernverkehrs (siehe auch BHF)"><input type="checkbox" name="tags" value="HBF" /> HBF</td>
-	    <td title="Spezialklinik für Kardiologie und Herzchirurgie, Herzzentrum"><input type="checkbox" name="tags" value="Herz" /> Herz</td>
-	    <td title="Startpunkt von Ambulanzfahrten (siehe AmbKH) und Start-/Zielpunkt von innerklinischen Verlegungen"><input type="checkbox" name="tags" value="IKH" /> IKH</td>
-	    <td title="Unternehmen/Firmen mit Lagerhallen, Fabriken usw. wo körperlich gearbeitet wird, nicht nur Büros"><input type="checkbox" name="tags" value="Industrie" /> Industrie</td>
-	  </tr>
-	  <tr>
-	    <td title="Jugendherberge"><input type="checkbox" name="tags" value="Juhe" /> Juhe</td>
-	    <td title="Gefängnis"><input type="checkbox" name="tags" value="JVA" /> JVA</td>
-	    <td title="größeres Einkaufszentrum"><input type="checkbox" name="tags" value="Kaufhaus" /> Kaufhaus</td>
-	    <td title="alle (!) Krankenhäuser"><input type="checkbox" name="tags" value="KH" /> KH</td>
-	    <td title="Kleineres Krankenhaus ohne Intensivstation"><input type="checkbox" name="tags" value="KH1" /> KH1</td>
-	  </tr>
-	  <tr>
-	    <td title="Krankenhaus der Regelversorgung mit Intensivstation"><input type="checkbox" name="tags" value="KH2" /> KH2</td>
-	    <td title="Krankenhaus der Schwerpunkt-/Maximalversorgung"><input type="checkbox" name="tags" value="KH3" /> KH3</td>
-	    <td title="Kindergarten/Kindertagesstätte/Hort"><input type="checkbox" name="tags" value="KiKa" /> KiKa</td>
-	    <td title="Kinderfachklinik"><input type="checkbox" name="tags" value="KiKli" /> KiKli</td>
-	    <td title="Gebetshaus jeglicher Glaubensrichtung"><input type="checkbox" name="tags" value="Kirche" /> Kirche</td>
-	  </tr>
-	  <tr>
-	    <td title="Oper, Theater, Festspielhaus (muss über eine Bühne und Publikum verfügen, keine Museen, Ausstellungen o.ä.)"><input type="checkbox" name="tags" value="Kultur" /> Kultur</td>
-	    <td title="(Bade-)Strand (siehe auch Freibad, See)"><input type="checkbox" name="tags" value="Küste" /> Küste</td>
-	    <td title="Standort der gespielten Leitstelle"><input type="checkbox" name="tags" value="Lst" /> Lst</td>
-	    <td title="Fachklinik für Pneumologie und Thoraxchirurgie, Lungenfachzentrum"><input type="checkbox" name="tags" value="Lunge" /> Lunge</td>
-	    <td title="Notfallpraxis jeglicher Art (jedoch keine normale Hausarztprxis o.ä.)"><input type="checkbox" name="tags" value="Notfallpraxis" /> Notfallpraxis</td>
-	  </tr>
-	  <tr>
-	    <td title="Orthopädische Fachklinik oder Sportklinik"><input type="checkbox" name="tags" value="Ortho" /> Ortho</td>
-	    <td title="Park bzw. innerörtliche Grünanlage mit Parkbänken, Liegewiesen usw.(siehe auch Friedhof, Wald)"><input type="checkbox" name="tags" value="Park" /> Park</td>
-	    <td title="Polizeirevier/-station jeglicher Größe"><input type="checkbox" name="tags" value="Polizei" /> Polizei</td>
-	    <td title="Psychiatrische Klnik"><input type="checkbox" name="tags" value="Psychiatrie" /> Psychiatrie</td>
-	    <td title="Reha-Zentrum"><input type="checkbox" name="tags" value="Reha" /> Reha</td>
-	  </tr>
-	  <tr>
-	    <td title="Hof mit Pferden wo geritten wird (siehe auch Bauernhof)"><input type="checkbox" name="tags" value="Reiterhof" /> Reiterhof</td>
-	    <td title="Rettungswache"><input type="checkbox" name="tags" value="RW" /> RW</td>
-	    <td title="Flussschleuse für (größere) Schiffe"><input type="checkbox" name="tags" value="Schleuse" /> Schleuse</td>
-	    <td title="Schloss oder Burganlage, das/die besichtigt werden kann"><input type="checkbox" name="tags" value="Schloss" /> Schloss</td>
-	    <td title="Allgemeinbildende Schule"><input type="checkbox" name="tags" value="Schule" /> Schule</td>
-	  </tr>
-	  <tr>
-	    <td title="Frischwassersee (siehe auch Freibad, Küste)"><input type="checkbox" name="tags" value="See" /> See</td>
-	    <td title="Multifunktionshalle"><input type="checkbox" name="tags" value="Sporthalle" /> Sporthalle</td>
-	    <td title="Strahlenambulanz, Tumorzentrum"><input type="checkbox" name="tags" value="Strahlen" /> Strahlen</td>
-	    <td title="Tankstelle (die auch von den Fahrzeugen im Spiel genutzt werden kann)"><input type="checkbox" name="tags" value="Tankstelle" /> Tankstelle</td>
-	    <td title="Institut für Tropenkrankheiten"><input type="checkbox" name="tags" value="Tropen" /> Tropen</td>
-	  </tr>
-	  <tr>
-	    <td title="Straßentunnel"><input type="checkbox" name="tags" value="Tunnel" /> Tunnel</td>
-	    <td title="Universitätsklinikum"><input type="checkbox" name="tags" value="UKH" /> UKH</td>
-	    <td title="Waldgebiet, z.B. zum Joggen (siehe auch Park)"><input type="checkbox" name="tags" value="Wald" /> Wald</td>
-	    <td title="Zelt- oder Campingplatz"><input type="checkbox" name="tags" value="Zelt" /> Zelt</td>
-	    <td title="Zoo mit wilden Tieren"><input type="checkbox" name="tags" value="Zoo" /> Zoo</td>
-	  </tr>
-	</table>
+	<tr><td>Genus:</td><td>
+	  <label><input type="radio" name="genus" value="M"> der</label>
+	  <label><input type="radio" name="genus" value="F"> die</label>
+	  <label><input type="radio" name="genus" value="N"> das</label>
+	</td></tr>
+	<tr><td colspan=2 id="newPOItaglist">
+	    <label title="Altenheim"><input type="checkbox" name="tags" value="AH" /> AH</label>
+	    <label title="ambulantes Zentrum z.B. für Spezialuntersuchungen usw."><input type="checkbox" name="tags" value="AmbKH" /> AmbKH</label>
+	    <label title="Sportarena, Stadion (siehe auch Fußballplatz)"><input type="checkbox" name="tags" value="Arena" /> Arena</label>
+	    <label title="Gleisbereich mit Verkehr von Personenzügen"><input type="checkbox" name="tags" value="Bahnlinie" /> Bahnlinie</label>
+	    <label title="Niveaugleicher Bahnübergang"><input type="checkbox" name="tags" value="Bahnübergang" /> Bahnübergang</label>
+	    <label title="Bankfiliale"><input type="checkbox" name="tags" value="Bank" /> Bank</label>
+	    <label title="Bauernhof mit Feldern/Koppeln (siehe auch Reiterhof)"><input type="checkbox" name="tags" value="Bauernhof" /> Bauernhof</label>
+	    <label title="Ortsverein einer Hiorg (DRK, JUH, MHD, ASB usw.)"><input type="checkbox" name="tags" value="Bereitschaft" /> Bereitschaft</label>
+	    <label title="Bahnhof des Regionalverkehrs (siehe auch HBF)"><input type="checkbox" name="tags" value="BHF" /> BHF</label>
+	    <label title="Blutbank als Ausgangspunkt von Bluttransporten durch den RD"><input type="checkbox" name="tags" value="Blut" /> Blut</label>
+	    <label title="Straßenbrücke über einen Fluss"><input type="checkbox" name="tags" value="Brücke" /> Brücke</label>
+	    <label title="Dialysezentrum"><input type="checkbox" name="tags" value="Dialyse" /> Dialyse</label>
+	    <label title="Diskothek"><input type="checkbox" name="tags" value="Disko" /> Disko</label>
+	    <label title="Feuerwache (sowohl BF als auch FF)"><input type="checkbox" name="tags" value="Feuerwehr" /> Feuerwehr</label>
+	    <label title="Krankenhaus das als Ziel von Fernfahrten geeignet ist"><input type="checkbox" name="tags" value="FKH" /> FKH</label>
+	    <label title="größerer Verkehrsflughafen"><input type="checkbox" name="tags" value="Flughafen" /> Flughafen</label>
+	    <label title="Klinik an einem Flughafen"><input type="checkbox" name="tags" value="FlugKH" /> FlugKH</label>
+	    <label title="kleinerer Flugplatz"><input type="checkbox" name="tags" value="Flugplatz" /> Flugplatz</label>
+	    <label title="Gechlortes Freibad (siehe auch Hallenbad, Küste, See)"><input type="checkbox" name="tags" value="Freibad" /> Freibad</label>
+	    <label title="Begräbnisstätte (siehe auch Park)"><input type="checkbox" name="tags" value="Friedhof" /> Friedhof</label>
+	    <label title="Fußballplatz (siehe auch Arena)"><input type="checkbox" name="tags" value="Fußball" /> Fußball</label>
+	    <label title="Freizeitpark mit Fahrgeschäften (kein Rummelplatz o.ä. mit zeitlich begrenzten Volksfesten)"><input type="checkbox" name="tags" value="FZPark" /> FZPark</label>
+	    <label title="Gastgewerbebetrieb, Restaurant"><input type="checkbox" name="tags" value="Gasthaus" /> Gasthaus</label>
+            <label title="Gefängniskrankenhaus"><input type="checkbox" name="tags" value="GKH" /> GKH</label>
+	    <label title="Hafen für (große) Seeschiffe"><input type="checkbox" name="tags" value="Hafen" /> Hafen</label>
+	    <label title="Schwimmbad mit Dach und vier Wänden (siehe auch Freibad)"><input type="checkbox" name="tags" value="Hallenbad" /> Hallenbad</label>
+	    <label title="Bahnhof des Fernverkehrs (siehe auch BHF)"><input type="checkbox" name="tags" value="HBF" /> HBF</label>
+	    <label title="Spezialklinik für Kardiologie und Herzchirurgie, Herzzentrum"><input type="checkbox" name="tags" value="Herz" /> Herz</label>
+	    <label title="Startpunkt von Ambulanzfahrten (siehe AmbKH) und Start-/Zielpunkt von innerklinischen Verlegungen"><input type="checkbox" name="tags" value="IKH" /> IKH</label>
+	    <label title="Unternehmen/Firmen mit Lagerhallen, Fabriken usw. wo körperlich gearbeitet wird, nicht nur Büros"><input type="checkbox" name="tags" value="Industrie" /> Industrie</label>
+	    <label title="Jugendherberge"><input type="checkbox" name="tags" value="Juhe" /> Juhe</label>
+	    <label title="Gefängnis"><input type="checkbox" name="tags" value="JVA" /> JVA</label>
+	    <label title="größeres Einkaufszentrum"><input type="checkbox" name="tags" value="Kaufhaus" /> Kaufhaus</label>
+	    <label title="alle (!) Krankenhäuser"><input type="checkbox" name="tags" value="KH" /> KH</label>
+	    <label title="Kleineres Krankenhaus ohne Intensivstation"><input type="checkbox" name="tags" value="KH1" /> KH1</label>
+	    <label title="Krankenhaus der Regelversorgung mit Intensivstation"><input type="checkbox" name="tags" value="KH2" /> KH2</label>
+	    <label title="Krankenhaus der Schwerpunkt-/Maximalversorgung"><input type="checkbox" name="tags" value="KH3" /> KH3</label>
+	    <label title="Kindergarten/Kindertagesstätte/Hort"><input type="checkbox" name="tags" value="KiKa" /> KiKa</label>
+	    <label title="Kinderfachklinik"><input type="checkbox" name="tags" value="KiKli" /> KiKli</label>
+	    <label title="Gebetshaus jeglicher Glaubensrichtung"><input type="checkbox" name="tags" value="Kirche" /> Kirche</label>
+	    <label title="Oper, Theater, Festspielhaus (muss über eine Bühne und Publikum verfügen, keine Museen, Ausstellungen o.ä.)"><input type="checkbox" name="tags" value="Kultur" /> Kultur</label>
+	    <label title="(Bade-)Strand (siehe auch Freibad, See)"><input type="checkbox" name="tags" value="Küste" /> Küste</label>
+	    <label title="Standort der gespielten Leitstelle"><input type="checkbox" name="tags" value="Lst" /> Lst</label>
+	    <label title="Fachklinik für Pneumologie und Thoraxchirurgie, Lungenfachzentrum"><input type="checkbox" name="tags" value="Lunge" /> Lunge</label>
+	    <label title="Notfallpraxis jeglicher Art (jedoch keine normale Hausarztprxis o.ä.)"><input type="checkbox" name="tags" value="Notfallpraxis" /> Notfallpraxis</label>
+	    <label title="Orthopädische Fachklinik oder Sportklinik"><input type="checkbox" name="tags" value="Ortho" /> Ortho</label>
+	    <label title="Park bzw. innerörtliche Grünanlage mit Parkbänken, Liegewiesen usw.(siehe auch Friedhof, Wald)"><input type="checkbox" name="tags" value="Park" /> Park</label>
+	    <label title="Polizeirevier/-station jeglicher Größe"><input type="checkbox" name="tags" value="Polizei" /> Polizei</label>
+	    <label title="Psychiatrische Klnik"><input type="checkbox" name="tags" value="Psychiatrie" /> Psychiatrie</label>
+	    <label title="Reha-Zentrum"><input type="checkbox" name="tags" value="Reha" /> Reha</label>
+	    <label title="Hof mit Pferden wo geritten wird (siehe auch Bauernhof)"><input type="checkbox" name="tags" value="Reiterhof" /> Reiterhof</label>
+	    <label title="Rettungswache"><input type="checkbox" name="tags" value="RW" /> RW</label>
+	    <label title="Flussschleuse für (größere) Schiffe"><input type="checkbox" name="tags" value="Schleuse" /> Schleuse</label>
+	    <label title="Schloss oder Burganlage, das/die besichtigt werden kann"><input type="checkbox" name="tags" value="Schloss" /> Schloss</label>
+	    <label title="Allgemeinbildende Schule"><input type="checkbox" name="tags" value="Schule" /> Schule</label>
+	    <label title="Frischwassersee (siehe auch Freibad, Küste)"><input type="checkbox" name="tags" value="See" /> See</label>
+	    <label title="Multifunktionshalle"><input type="checkbox" name="tags" value="Sporthalle" /> Sporthalle</label>
+	    <label title="Strahlenambulanz, Tumorzentrum"><input type="checkbox" name="tags" value="Strahlen" /> Strahlen</label>
+	    <label title="Tankstelle (die auch von den Fahrzeugen im Spiel genutzt werden kann)"><input type="checkbox" name="tags" value="Tankstelle" /> Tankstelle</label>
+	    <label title="Institut für Tropenkrankheiten"><input type="checkbox" name="tags" value="Tropen" /> Tropen</label>
+	    <label title="Straßentunnel"><input type="checkbox" name="tags" value="Tunnel" /> Tunnel</label>
+	    <label title="Universitätsklinikum"><input type="checkbox" name="tags" value="UKH" /> UKH</label>
+	    <label title="Waldgebiet, z.B. zum Joggen (siehe auch Park)"><input type="checkbox" name="tags" value="Wald" /> Wald</label>
+	    <label title="Zelt- oder Campingplatz"><input type="checkbox" name="tags" value="Zelt" /> Zelt</label>
+	    <label title="Zoo mit wilden Tieren"><input type="checkbox" name="tags" value="Zoo" /> Zoo</label>
 	</td></tr>
       </table>
       <div>
