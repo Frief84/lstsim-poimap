@@ -201,7 +201,7 @@ function parsePOIs() {
   pois  = [];
 
 for (var i = 0; i < lines.length; i++) {
-    var line = lines[i].split("\t");
+    var line = lines[i].split(/[\t;]/);
     if (line.length < 5) continue;
     if (line[4].match(/^Tags.*/)) continue;
     if (line[4].length < 2) line[4] = "ohne";
