@@ -3,9 +3,9 @@ var yes = " <span style='color:green;'>✔</span>";
 
 var categories = ["ohne", "AH", "AmbKH", "Arena", "BAB", "Bahnlinie", "Bahnübergang", "Bank", "Bauernhof", "Bereitschaft", "BHF", "Blut",
                   "Brücke", "Dialyse", "Disko", "Druck", "Feuerwehr", "FKH", "Flughafen", "FlugKH", "Flugplatz", "Freibad",
-		  "Friedhof", "Fußball", "FZPark", "Gasthaus", "GKH", "Hafen", "Hallenbad", "HBF", "Herz", "IKH", "Industrie", "Juhe", "Kaufhaus",
+		  "Friedhof", "Fußball", "FZPark", "Gasthaus", "GKH", "Hafen", "Hallenbad", "HBF", "Herz", "IKH", "Industrie", "Juhe", "JVA", "Kaufhaus",
 		  "KH", "KH1", "KH2", "KH3", "KiKa", "KiKli", "Kirche", "Kultur", "Küste", "Lst", "Lunge", "Notfallpraxis",
-		  "Ortho", "Park", "Polizei", "Psychiatrie", "Reha", "Reiterhof", "RW", "Schleuse", "Schloss", "Schule", "See", "Strahlen", "Tankstelle",
+		  "Ortho", "Park", "Polizei", "Psychiatrie", "Reha", "Reiterhof", "RW", "Schleuse", "Schloss", "Schule", "See", "Sporthalle", "Strahlen", "Tankstelle",
 		  "Tropen", "Tunnel", "UKH", "Wald", "Zelt", "Zoo"];
 
 var poiImporter      = null;
