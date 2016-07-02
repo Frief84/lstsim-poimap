@@ -27,22 +27,6 @@ function initMap() {
   map.addLayer(osm);
   map.setCenter(center, zoom);
 
-/*  var switchBaseLayer = document.getElementById("switchBaseLayer");
-  switchBaseLayer.onclick =
-    function() {
-      if (baselayer == "osm") {
-        map.addLayer(google);
-        map.removeLayer(osm);
-        baselayer = "google";
-      }
-      if (baselayer == "google") {
-        map.addLayer(osm);
-        map.removerLayer(google);
-        baselayer = "osm";
-      }
-    }
-*/
-
 }
 
 function clickOnMarker(evt) {
