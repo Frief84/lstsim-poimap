@@ -316,6 +316,9 @@ function toggleVisibility(cat) {
 function setSelector(cat,state) {
   var myselector = document.getElementById("selector" + cat + "span");
   var myimage    = document.getElementById("selector" + cat + "img");
+  if (myselector === null || myimage === null) {
+    return;
+  }
   myselector.setAttribute("class","clickable " + state);
   if (state == "hidden")
     myimage.setAttribute("src","markers/inaktiv.png");
