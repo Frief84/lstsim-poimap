@@ -176,7 +176,7 @@ function parseNewPOI() {
     poiLayers["neu"] = new OpenLayers.Layer.Markers("neu");
     map.addLayer(poiLayers["neu"]);
   }   
-  var myIcon = new OpenLayers.Icon("markers/neu.png",iconSize,iconOffset);
+  var myIcon = new OpenLayers.Icon("markers/neu.svg",iconSize,iconOffset);
   var myMarker = new OpenLayers.Marker(lonlat,myIcon);
   myMarker.poi = mynewpoi;
   poiLayers["neu"].addMarker(myMarker);
@@ -248,7 +248,7 @@ function drawPOIs() {
       if (!poiLayers[tag]) {
         poiLayers[tag] = new OpenLayers.Layer.Markers(tag);
       }
-      var myIcon = new OpenLayers.Icon("markers/" + pois[i].tags[j].replace(/\s+/g,'') + ".png",iconSize,iconOffset);
+      var myIcon = new OpenLayers.Icon("markers/" + pois[i].tags[j].replace(/\s+/g,'') + ".svg",iconSize,iconOffset);
       var myMarker = new OpenLayers.Marker(lonlat,myIcon);
       myMarker.poi = pois[i];
       poiLayers[tag].addMarker(myMarker);
@@ -296,7 +296,7 @@ function resetNewPOIForm() {
 
 function addLink(cat) {
   if (poiLayers[cat]) {
-    selector.innerHTML += "<span id='selector" + cat + "span' class='clickable' onclick='toggleVisibility(\"" + cat + "\");'><img id='selector" + cat + "img' src='markers/" + cat + ".png' alt='' /> " + cat + " <small>(" + poiLayers[cat].markers.length + ")</small></span><br/>";
+    selector.innerHTML += "<span id='selector" + cat + "span' class='clickable' onclick='toggleVisibility(\"" + cat + "\");'><img id='selector" + cat + "img' src='markers/" + cat + ".svg' alt='' /> " + cat + " <small>(" + poiLayers[cat].markers.length + ")</small></span><br/>";
   }
 }
 
@@ -321,7 +321,7 @@ function setSelector(cat,state) {
   }
   myselector.setAttribute("class","clickable " + state);
   if (state == "hidden")
-    myimage.setAttribute("src","markers/inaktiv.png");
+    myimage.setAttribute("src","markers/inaktiv.svg");
   else
-    myimage.setAttribute("src","markers/" + cat + ".png");
+    myimage.setAttribute("src","markers/" + cat + ".svg");
 }
