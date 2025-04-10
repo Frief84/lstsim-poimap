@@ -28,7 +28,7 @@ Die POI Map ermöglicht es, große Mengen an POI-Daten auf einer Karte darzustel
 ## 🌐 Online-Demo
 
 Die aktuelle Version ist hier öffentlich erreichbar:  
-👉 **[https://DEINUSERNAME.github.io/lstsim-poimap](https://DEINUSERNAME.github.io/lstsim-poimap)**  
+👉 **[https://Frief84.github.io/lstsim-poimap](https://Frief84.github.io/lstsim-poimap)**  
 *(Hinweis: Die URL kann sich ändern – aktuelle Infos finden sich im LSTsim-Forum)*
 
 ---
