@@ -4,9 +4,10 @@
     <title>POI Map</title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel="stylesheet" href="style.css" type="text/css">
-    <script type="text/javascript" src="openlayers/OpenLayers.js"></script>
+    <script type="text/javascript" src="openlayers/lib/OpenLayers.js"></script>
     <script type="text/javascript" src="map.js"></script>
     <script type="text/javascript" src="poi.js"></script>
+	  <link rel="icon" type="image/x-icon" href="favicon.ico">
   </head>
   <body onload="initMap(); initPOI();">
     <div id="map"></div>
@@ -48,7 +49,14 @@
       <li>Details des neuen POIs in das sich &ouml;ffnende Fenster eintragen.</li>
       <li>Wenn alle gew&uuml;nschten neuen POIs eingetragen sind, auf die zweite Schaltfl&auml;che links unten klicken und die angezeigten Daten per POI-Massenimport in den Leitstelleneditor &uuml;bernehmen.</li>
       </ol>
-      <p>Anregungen, Kritik und Bugreports bitte in den <a href="https://lstsim.de/forum/index.php?page=Thread&amp;threadID=5162" target="blank">Thread im Forum</a> oder auf <a href="https://github.com/Der-MichiK/lstsim-poimap">GitHub</a>!</p>
+      <p>Anregungen, Kritik und Bugreports bitte in den <a href="https://lstsim.de/forum/index.php?page=Thread&amp;threadID=5162" target="blank">Thread im Forum</a> <!--oder auf <a href="https://github.com/Der-MichiK/lstsim-poimap">GitHub</a>!--></p>
+		<p style="font-size:smaller; color:gray;">
+  Diese Version basiert auf dem ursprünglichen Projekt von 
+  <a href="https://github.com/MichiK/lstsim-poimap" target="_blank">MichiK/lstsim-poimap</a>.  
+  Die Adresse der aktuellen Version kann sich ändern und wird im 
+  <a href="https://forum.lstsim.de/thread/5162-karte-f%C3%BCr-die-poi-auswertung" target="_blank">entsprechenden Forumsthread</a> 
+  bekanntgegeben.
+</p>
       <button id="closeHelp">Verstanden!</button>
     </div>
     <div id="poiImporter">
@@ -81,6 +89,7 @@
 	    <label title="Bauernhof mit Feldern/Koppeln (siehe auch Reiterhof)"><input type="checkbox" name="tags" value="Bauernhof" /> Bauernhof</label>
 	    <label title="Ortsverein einer Hiorg (DRK, JUH, MHD, ASB usw.)"><input type="checkbox" name="tags" value="Bereitschaft" /> Bereitschaft</label>
 	    <label title="Bahnhof des Regionalverkehrs (siehe auch HBF)"><input type="checkbox" name="tags" value="BHF" /> BHF</label>
+		<label title="Betreutes Wohnen"><input type="checkbox" name="tags" value="BW" /> BW</label>
 	    <label title="Blutbank als Ausgangspunkt von Bluttransporten durch den RD"><input type="checkbox" name="tags" value="Blut" /> Blut</label>
 	    <label title="Straßenbrücke über einen Fluss"><input type="checkbox" name="tags" value="Brücke" /> Brücke</label>
 	    <label title="Dialysezentrum"><input type="checkbox" name="tags" value="Dialyse" /> Dialyse</label>
@@ -95,6 +104,7 @@
 	    <label title="Fußballplatz (siehe auch Arena)"><input type="checkbox" name="tags" value="Fußball" /> Fußball</label>
 	    <label title="Freizeitpark mit Fahrgeschäften (kein Rummelplatz o.ä. mit zeitlich begrenzten Volksfesten)"><input type="checkbox" name="tags" value="FZPark" /> FZPark</label>
 	    <label title="Gastgewerbebetrieb, Restaurant"><input type="checkbox" name="tags" value="Gasthaus" /> Gasthaus</label>
+		<label title="Allgemeinbildende Grundschule"><input type="checkbox" name="tags" value="Grundschule" /> Grundschule</label>
             <label title="Gefängniskrankenhaus"><input type="checkbox" name="tags" value="GKH" /> GKH</label>
 	    <label title="Hafen für (große) Seeschiffe"><input type="checkbox" name="tags" value="Hafen" /> Hafen</label>
 	    <label title="Schwimmbad mit Dach und vier Wänden (siehe auch Freibad)"><input type="checkbox" name="tags" value="Hallenbad" /> Hallenbad</label>

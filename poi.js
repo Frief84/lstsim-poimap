@@ -1,12 +1,7 @@
 var no  = " <span style='color:red;'>✖</span>";
 var yes = " <span style='color:green;'>✔</span>";
 
-var categories = ["ohne", "AH", "AmbKH", "Arena", "BAB", "Bahnlinie", "Bahnübergang", "Bank", "Bauernhof", "Bereitschaft", "BHF", "Blut",
-                  "Brücke", "Dialyse", "Disko", "Druck", "Feuerwehr", "FKH", "Flughafen", "FlugKH", "Flugplatz", "Freibad",
-		  "Friedhof", "Fußball", "FZPark", "Gasthaus", "GKH", "Hafen", "Hallenbad", "HBF", "Herz", "IKH", "Industrie", "Juhe", "JVA", "Kaufhaus",
-		  "KH", "KH1", "KH2", "KH3", "KiKa", "KiKli", "Kirche", "Kultur", "Küste", "Lst", "Lunge", "Notfallpraxis",
-		  "Ortho", "Park", "Polizei", "Psychiatrie", "Reha", "Reiterhof", "RW", "Schleuse", "Schloss", "Schule", "See", "Sporthalle", "Strahlen", "Tankstelle",
-		  "Tropen", "Tunnel", "UKH", "Wald", "Zelt", "Zoo"];
+var categories = ["AH", "AmbKH", "Arena", "Bahnlinie", "Bahnübergang", "Bank", "Bereitschaft", "BW", "Blut", "Brücke", "Dialyse", "Disko", "Druck", "Feuerwehr", "FKH", "Flughafen", "FlugKH", "Flugplatz", "Freibad", "Friedhof", "Fußball", "FZPark", "Gasthaus", "GKH", "Grundschule", "Hafen", "Hallenbad", "HBF", "Herz", "IKH", "Industrie", "Juhe", "JVA", "Kaufhaus", "KH", "KH1", "KH2", "KH3", "KiKa", "KiKli", "Kirche", "Kultur", "Küste", "Lst", "Lunge", "Notfallpraxis", "Ortho", "Park", "Polizei", "Psychiatrie", "Reha", "Reiterhof", "RW", "Schleuse", "Schloss", "Schule", "See", "Sporthalle", "Strahlen", "Tankstelle", "Tropen", "Tunnel", "UKH", "Wald", "Zelt", "Zoo", "ohne"];
 
 var poiImporter      = null;
 var poiInput         = null;
