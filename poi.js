@@ -1,14 +1,7 @@
 var no  = " <span style='color:red;'>✖</span>";
 var yes = " <span style='color:green;'>✔</span>";
 
-var categories = [  "AH", "AKIP", "AKIP1", "AKIP2", "AmbKH", "Arena", "Bahnlinie", "Bahnübergang", "Bank", 
-  "Bereitschaft", "Blut", "Brücke", "BW", "Dialyse", "Disko", "Druck", "Feuerwehr", 
-  "FKH", "Flughafen", "FlugKH", "Flugplatz", "Freibad", "Friedhof", "Fußball", "FZPark", 
-  "Gasthaus", "GKH", "Grundschule", "Hafen", "Hallenbad", "HBF", "Herz", "IKH", "Industrie", 
-  "Juhe", "JVA", "Kaufhaus", "KH", "KH1", "KH2", "KH3", "KiKa", "KiKli", "Kirche", "Kultur", 
-  "Küste", "Lst", "Lunge", "Notfallpraxis", "Ortho", "Park", "Polizei", "Psychiatrie", 
-  "Reha", "Reiterhof", "RW", "SBF", "Schleuse", "Schloss", "Schule", "See", "Sporthalle", 
-  "Strahlen", "Tankstelle", "Tropen", "Tunnel", "UBF", "UKH", "Wald", "Zelt", "Zoo", "ohne"];
+var categories = [];
 
 var poiImporter      = null;
 var poiInput         = null;
@@ -132,6 +125,10 @@ function initPOI() {
   drawPOIButton.onclick  = drawPOIs;
   poiInput.onkeyup  = parsePOIs;
   poiInput.onchange = parsePOIs;
+	
+	var categories = Array.from(document.querySelectorAll('#newPOItaglist input[type="checkbox"]'))
+                      .map(cb => cb.value)
+                      .sort();
 }
 
 function clickForNewPOI(evt) {
@@ -190,6 +187,8 @@ function parseNewPOI() {
   resetNewPOIForm();
   showNewPOIs.innerHTML = "neue POIs anzeigen (" + newPOIList.length + ")";
   showNewPOIs.style.visibility = "visible";
+	
+
 }
 
 function parsePOIs() {
