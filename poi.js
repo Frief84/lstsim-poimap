@@ -126,9 +126,9 @@ function initPOI() {
   poiInput.onkeyup  = parsePOIs;
   poiInput.onchange = parsePOIs;
 	
-	var categories = Array.from(document.querySelectorAll('#newPOItaglist input[type="checkbox"]'))
-                      .map(cb => cb.value)
-                      .sort();
+	categories = Array.from(document.querySelectorAll('#newPOItaglist input[type="checkbox"]'))
+                  .map(cb => cb.value)
+                  .sort();
 }
 
 function clickForNewPOI(evt) {
