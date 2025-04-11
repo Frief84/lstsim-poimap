@@ -183,12 +183,10 @@ function parseNewPOI() {
   poisDrawn++;
 
   newPOIField.innerHTML += mynewpoi.lat + "," + mynewpoi.lon + ";" + mynewpoi.genus + ";" + mynewpoi.name + ";" + mynewpoi.tags.toString() + ";" + mynewpoi.comment + ";\n";
-
+	
   resetNewPOIForm();
   showNewPOIs.innerHTML = "neue POIs anzeigen (" + newPOIList.length + ")";
   showNewPOIs.style.visibility = "visible";
-	
-
 }
 
 function parsePOIs() {
@@ -326,3 +324,59 @@ function setSelector(cat,state) {
   else
     myimage.setAttribute("src","markers/" + cat + ".svg");
 }
+
+function isNewPOI(poi) {
+  return newPOIList.some(p => p.lat == poi.lat && p.lon == poi.lon && p.name == poi.name);
+}
+
+function editNewPOI(poi) {
+  document.getElementById("newPOICoords").value = poi.lat + "," + poi.lon;
+  document.getElementById("newPOIName").value = poi.name;
+  document.getElementById("newPOIComment").value = poi.comment;
+
+  // Genus setzen
+  var genusList = document.getElementsByName("genus");
+  for (var i in genusList) {
+    genusList[i].checked = genusList[i].value === poi.genus;
+  }
+
+  // Tags setzen
+  var tagboxes = document.getElementsByName("tags");
+  for (var i in tagboxes) {
+    tagboxes[i].checked = poi.tags.includes(tagboxes[i].value);
+  }
+
+  newPOI.style.visibility = "visible";
+}
+
+window.editNewPOIFromPopup = function(poi) {
+  editNewPOI(poi);
+}
+window.deleteNewPOIFromPopup = function(poi) {
+  // Entferne Marker von der Karte
+  if (poiLayers["neu"]) {
+    let markers = poiLayers["neu"].markers;
+    for (let i = 0; i < markers.length; i++) {
+      if (markers[i].poi.lat == poi.lat && markers[i].poi.lon == poi.lon) {
+        poiLayers["neu"].removeMarker(markers[i]);
+        break;
+      }
+    }
+  }
+
+  // Entferne POI aus der Liste
+  newPOIList = newPOIList.filter(p => !(p.lat == poi.lat && p.lon == poi.lon && p.name == poi.name));
+
+  // Aktualisiere Textfeld mit neuer Liste
+  newPOIField.innerHTML = "";
+  newPOIList.forEach(p => {
+    newPOIField.innerHTML += p.lat + "," + p.lon + ";" + p.genus + ";" + p.name + ";" + p.tags.toString() + ";" + p.comment + ";\n";
+  });
+
+  // Zähler aktualisieren
+  showNewPOIs.innerHTML = "neue POIs anzeigen (" + newPOIList.length + ")";
+  
+  // Popup schließen
+  map.removePopup(map.popups[map.popups.length - 1]);
+};
+

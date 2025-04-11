@@ -29,17 +29,52 @@ function initMap() {
 
 }
 
+function isNewPOI(poi) {
+  return newPOIList.some(p => 
+    p.lat == poi.lat && 
+    p.lon == poi.lon && 
+    p.name == poi.name &&
+    p.comment == poi.comment
+  );
+}
+
 function clickOnMarker(evt) {
   var marker = evt.object;
+  var poi = marker.poi;
+
   if (marker.popup) {
     marker.popup.toggle();
     OpenLayers.Event.stop(evt);
   } else {
-    text = "<strong>" + marker.poi.name + "</strong><br/>Tags: " + marker.poi.tags.toString();
-    text += "<br/>Koordinaten: " + marker.poi.lat + "," + marker.poi.lon + "<br/>Genus: " + marker.poi.genus;
-    if (marker.poi.comment.length > 0) text += "<br/>Kommentar: " + marker.poi.comment;
-    marker.popup = new OpenLayers.Popup.FramedCloud("Popup",this.lonlat,new OpenLayers.Size(150,50),text,this.icon,true);  
+    let text = "<strong>" + poi.name + "</strong><br/>Tags: " + poi.tags.toString();
+    text += "<br/>Koordinaten: " + poi.lat + "," + poi.lon + "<br/>Genus: " + poi.genus;
+    if (poi.comment.length > 0) {
+      text += "<br/>Kommentar: " + poi.comment;
+    }
+
+    // Buttons nur bei neuen POIs
+    if (isNewPOI(poi)) {
+      text += `
+        <div style="margin-top: 10px; text-align: right;">
+          <button title="Bearbeiten" style="margin-right: 5px; padding:2px 6px; border:1px solid #ccc; background:#f8f8f8; border-radius:4px; cursor:pointer;"
+            onclick='window.editNewPOIFromPopup(${JSON.stringify(poi).replace(/'/g, "\\'")})'>✏️</button>
+          <button title="Löschen" style="padding:2px 6px; border:1px solid #ccc; background:#fff0f0; border-radius:4px; cursor:pointer; color:#a00;"
+            onclick='window.deleteNewPOIFromPopup(${JSON.stringify(poi).replace(/'/g, "\\'")})'>🗑️</button>
+        </div>
+      `;
+    }
+
+    marker.popup = new OpenLayers.Popup.FramedCloud(
+      "Popup",
+      marker.lonlat,
+      new OpenLayers.Size(150, 50),
+      text,
+      marker.icon,
+      true
+    );
+
     map.addPopup(marker.popup);
     OpenLayers.Event.stop(evt);
   }
 }
+
